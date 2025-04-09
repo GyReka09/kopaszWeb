@@ -1,17 +1,19 @@
 export default class Kosar {
-  #index;
-  constructor(ipElem, kosar, index) {
-    this.kosar = kosar;
-    this.#index = index;
 
-    this.view();
-    this.kosrElem = document.querySelector(".kosar:last-child");
-    this.torElem = this.kosrElem.querySelector(".torol: last-child");
-    this.kosar();
-  }
+    #index;
+    constructor(ipElem, kosar, index) {
+      this.kosar = kosar;
+      this.#index = index;
+  
+      this.view();
+      this.kosrElem = document.querySelector(".kosar:last-child");
+      this.torElem = this.kosrElem.querySelector(".torol: last-child");
+      this.kosar();
+    }
+  
+    view() {
+      let html = `<div class="card mb-3" style="max-width: 540px;">
 
-  view() {
-    let html = `<div class="card mb-3" style="max-width: 540px;">
                     <div class="row g-0">
                     <div class="col-md-4">
                     <img src=${this.kosar.kep} class="img-fluid rounded-start" alt="...">
