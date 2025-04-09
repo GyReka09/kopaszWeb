@@ -1,6 +1,6 @@
 export default class Kosar {
   #index;
-  constructor(ipElem, kosar, index) {
+  constructor(ipElem, kosar, index, lista) {
     this.kosar = kosar;
     this.#index = index;
 
@@ -10,7 +10,7 @@ export default class Kosar {
     this.kosrElem = document.querySelector(".kosar:last-child");
     this.torElem = this.kosrElem.querySelector(".torol:last-child");
     this.torlunk();
-    this.novel();
+    this.osszeg(lista);
   }
 
   torlunk() {
@@ -34,16 +34,23 @@ export default class Kosar {
                     <h5 class="card-title">${this.kosar.nev}</h5>
                     <p class="card-text">${this.kosar.leiras}</p>
                     <p class="card-text"><small class="text-body-secondary">${this.kosar.ar}</small></p>
-           
+                    <p class="card-text"><small class="text-body-secondary">${this.kosar.db}</small></p>
                     <button class="torol">Torol</button>
                     </div>
                     </div>
                     </div>
                     </div>`;
     this.ipElem.insertAdjacentHTML("beforeend", html);
+
   }
 
-  novel() {
-    this.db++;
+  osszeg(lista) {
+    let vegosszeg = 0;
+    for (let index = 0; index < lista.length; index++) {
+      const element = lista[index];
+      vegosszeg += lista[index].ar * lista[index].db;
+      console.log(vegosszeg);
+    }
   }
+
 }

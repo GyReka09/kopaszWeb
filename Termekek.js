@@ -1,5 +1,6 @@
 import Termek from "./Termek.js";
 import Kosar from "./Kosar.js";
+import Keres from "./Keres.js";
 
 export default class Termekek {
   #listt;
@@ -9,11 +10,17 @@ export default class Termekek {
     this.#listk = listk;
     this.pElem = pElem;
     this.ipElem = ipElem;
+    this.viewKeres();
     this.viewTermek();
     this.viewKosar();
 
     this.kosarbaEvent();
     this.torolEvent();
+    this.keresEvent();
+  }
+
+  viewKeres(){
+    new Keres(this.pElem)
   }
 
   viewTermek() {
@@ -28,19 +35,34 @@ export default class Termekek {
     this.ipElem.innerHTML = "";
     for (let index = 0; index < this.#listk.length; index++) {
       const kelement = this.#listk[index];
-      const Kosarak = new Kosar(this.ipElem, kelement, index);
+      const Kosarak = new Kosar(this.ipElem, kelement, index, this.#listk);
     }
   }
-  kosarbaEvent() {
-    window.addEventListener("kosar", (event) => {
-      console.log(event.detail);
-      this.ipElem.innerHTML = "";
 
-      this.#listk.push(this.#listt[event.detail]);
 
-      this.viewKosar();
-    });
-  }
+    kosarbaEvent() {
+      window.addEventListener("kosar", (event) => {
+        console.log(event.detail);
+        this.ipElem.innerHTML = "";
+        let van = false;
+        if (this.#listk.length === 0) {
+          this.#listt[event.detail].db = 0;
+          this.#listk.push(this.#listt[event.detail]);
+        }
+        for (let index = 0; index < this.#listk.length; index++) {
+          if (this.#listk[index].nev === this.#listt[event.detail].nev) {
+            this.#listk[index].db++;
+            van = true;
+            break;
+          }
+        }
+   
+        if (van === false) {
+          this.#listk.push(this.#listt[event.detail]);
+        }
+        this.viewKosar();
+      });
+    }
 
   torolEvent() {
     window.addEventListener("torol", (event) => {
@@ -56,13 +78,18 @@ export default class Termekek {
       this.viewKosar();
     });
   }
-  /*   torolEvent() {
-    window.addEventListener("remove", (event) => {
-      this.ipElem.innerHTML = "";
-      console.log(event.detail);
-      console.log(this.#listk)
-      this.#listk.splice(event.detail, 1);
-      this.viewKosar();
-    });
-  } */
+
+  keresEvent(){
+    window.addEventListener("keres",(event)=>{
+      console.log(event.detail)
+      let x = event.detail;
+      for (let index = 0; index < this.#listt.length; index++) {
+        if (x === this.#listt[index].nev) {
+
+          
+        }
+        
+      }
+    })
+  }
 }
