@@ -1,0 +1,16 @@
+*{
+    box-sizing: border-box;
+}
+img{
+    max-width: 400px;
+    max-height: 200px;
+}
+
+aside {
+    background-color: #f8f9fa; /* Light background to differentiate */
+    padding: 20px; /* Add some padding */
+  }
+
+.term{
+    margin: 5px;
+}

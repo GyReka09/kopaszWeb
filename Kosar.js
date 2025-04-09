@@ -3,15 +3,28 @@ export default class Kosar {
   constructor(ipElem, kosar, index) {
     this.kosar = kosar;
     this.#index = index;
-    this.db = 1;
+
+    this.ipElem = ipElem;
+
     this.view();
     this.kosrElem = document.querySelector(".kosar:last-child");
-    this.torElem = this.kosrElem.querySelector(".torol: last-child");
-    this.kosar();
+    this.torElem = this.kosrElem.querySelector(".torol:last-child");
+    this.torlunk();
+    this.novel();
+  }
+
+  torlunk() {
+    this.torElem.addEventListener("click", (event) => {
+      console.log(this.#index);
+
+      const e = new CustomEvent("torol", { detail: this.#index });
+      window.dispatchEvent(e);
+    });
   }
 
   view() {
-    let html = `<div class="card mb-3" style="max-width: 540px;">
+    let html = `<div class="kosar card mb-3" style="max-width: 540px;">
+
                     <div class="row g-0">
                     <div class="col-md-4">
                     <img src=${this.kosar.kep} class="img-fluid rounded-start" alt="...">
@@ -20,21 +33,17 @@ export default class Kosar {
                     <div class="card-body">
                     <h5 class="card-title">${this.kosar.nev}</h5>
                     <p class="card-text">${this.kosar.leiras}</p>
-                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                    <p class="card-text"><small class="text-body-secondary">${this.kosar.ar}</small></p>
+           
                     <button class="torol">Torol</button>
                     </div>
                     </div>
                     </div>
                     </div>`;
-    this.pElem.insertAdjacentHTML("beforeend", html);
+    this.ipElem.insertAdjacentHTML("beforeend", html);
   }
 
-  kosar() {
-    this.torElem.addEventListener("click", (event) => {
-      console.log(this.#index);
-
-      const e = new CustomEvent("torol", { detail: this.#index });
-      window.dispatchEvent(e);
-    });
+  novel() {
+    this.db++;
   }
 }

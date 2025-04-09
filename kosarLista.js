@@ -1,1 +1,1 @@
-export const kosarLista = [];
+export const kosar = [];
