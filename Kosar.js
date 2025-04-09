@@ -1,6 +1,6 @@
 export default class Kosar {
   #index;
-  constructor(ipElem, kosar, index, db) {
+  constructor(ipElem, kosar, index) {
     this.kosar = kosar;
     this.#index = index;
     this.db = 1;
