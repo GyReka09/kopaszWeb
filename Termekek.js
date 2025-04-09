@@ -10,18 +10,18 @@ export default class Termekek {
     this.#listk = listk;
     this.pElem = pElem;
     this.ipElem = ipElem;
-    this.viewKeres();
+ /*    this.viewKeres(); */
     this.viewTermek();
     this.viewKosar();
 
     this.kosarbaEvent();
     this.torolEvent();
-    this.keresEvent();
+ /*    this.keresEvent(); */
   }
 
-  viewKeres(){
+/*   viewKeres(){
     new Keres(this.pElem)
-  }
+  } */
 
   viewTermek() {
     this.pElem.innerHTML = "";
@@ -79,7 +79,7 @@ export default class Termekek {
     });
   }
 
-  keresEvent(){
+/*   keresEvent(){
     window.addEventListener("keres",(event)=>{
       console.log(event.detail)
       let x = event.detail;
@@ -91,5 +91,5 @@ export default class Termekek {
         
       }
     })
-  }
+  } */
 }
