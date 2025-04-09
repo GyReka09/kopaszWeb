@@ -11,7 +11,7 @@ export default class Termekek {
     this.ipElem = ipElem;
     this.viewTermek();
     this.viewKosar();
-   
+
     this.kosarbaEvent();
     this.torolEvent();
   }
@@ -35,8 +35,9 @@ export default class Termekek {
     window.addEventListener("kosar", (event) => {
       console.log(event.detail);
       this.ipElem.innerHTML = "";
-      
+
       this.#listk.push(this.#listt[event.detail]);
+
       this.viewKosar();
     });
   }
@@ -46,16 +47,16 @@ export default class Termekek {
       console.log("Remove event triggered");
       console.log("Item index to be removed:", event.detail);
       console.log("Before splice:", this.#listk);
-  
+
       // Remove the item from the listk array
       this.#listk.splice(event.detail, 1);
       console.log("After splice:", this.#listk);
-      
+
       // Re-render the cart view
       this.viewKosar();
     });
   }
-/*   torolEvent() {
+  /*   torolEvent() {
     window.addEventListener("remove", (event) => {
       this.ipElem.innerHTML = "";
       console.log(event.detail);
