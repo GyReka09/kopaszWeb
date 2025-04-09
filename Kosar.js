@@ -1,13 +1,14 @@
 export default class Termek {
   #index;
-  constructor(pElem, termek, index) {
-    this.termek = termek;
+  constructor(pElem, kosar, index) {
+    this.kosar = kosar;
     this.#index = index;
 
     this.view();
     this.termElem = document.querySelector(".term:last-child");
     this.kosElem = this.termElem.querySelector(".kosarg: last-child");
     this.kosar();
+    this.remove();
   }
 
   view() {

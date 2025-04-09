@@ -1,62 +1,50 @@
 import Termek from "./Termek.js";
-import TodoInput from "./TodoInput.js";
+import Kosar from "./Kosar.js";
 
 export default class Termekek {
-  #list;
-  constructor(pElem, ipElem, list) {
-    this.#list = list;
+  #listt;
+  #listk;
+  constructor(pElem, ipElem, listt, listk) {
+    this.#listt = listt;
+    this.#listk = listk;
     this.pElem = pElem;
     this.ipElem = ipElem;
-    this.viewInput();
-    this.viewTodos();
-    this.addEvent();
-    this.removeEvent();
-    this.readyEvent();
+    this.viewKosar();
+    this.viewTermek();
+    this.kosarbaEvent();
+    this.torolEvent();
   }
 
-  viewTodos() {
+  viewTermek() {
     this.pElem.innerHTML = "";
 
-    for (let index = 0; index < this.#list.length; index++) {
-      if (this.#list[index].exists === true) {
-        const element = this.#list[index];
-        const TODO = new Todo(element.name, this.pElem, index);
-        if (this.#list[index].green === true) {
-          TODO.textElem.classList.add("green");
-        }
-      }
+    for (let index = 0; index < this.#listt.length; index++) {
+      const element = this.#listt[index];
+      const Termekek = new Termek(this.pElem, element, index);
     }
   }
-
-  viewInput() {
-    new TodoInput(this.ipElem);
+  viewKosar() {
+    this.ipElem.innerHTML = "";
+    for (let index = 0; index < this.#listk.length; index++) {
+      const kelement = this.#listk[index];
+      const Kosarak = new Kosar(this.ipElem, kelement, index);
+    }
+  }
+  kosarbaEvent() {
+    window.addEventListener("kosar", (event) => {
+      console.log(event.detail);
+      this.ipElem.innerHTML = "";
+      this.#listk.push(this.#listt[event.detail]);
+      this.viewKosar();
+    });
   }
 
-  removeEvent() {
+  torolEvent() {
     window.addEventListener("remove", (event) => {
-      this.pElem.innerHTML = "";
+      this.ipElem.innerHTML = "";
       console.log(event.detail);
-      this.#list[event.detail].exists = false;
-      this.viewTodos();
-    });
-  }
-
-  addEvent() {
-    window.addEventListener("add", (event) => {
-      console.log(event.detail);
-      let y = this.#list.length + 1 + "." + event.detail;
-      let x = { name: y, exists: true, green: false };
-      this.#list.push(x);
-      this.viewTodos();
-    });
-  }
-
-  readyEvent() {
-    window.addEventListener("ready", (event) => {
-      this.pElem.innerHTML = "";
-      console.log(event.detail);
-      this.#list[event.detail].green = true;
-      this.viewTodos();
+      this.#listk.delete[this.#listk[event.detail]];
+      this.viewKosar();
     });
   }
 }
