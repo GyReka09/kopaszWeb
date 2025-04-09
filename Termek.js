@@ -3,15 +3,16 @@ export default class Termek {
   constructor(pElem, termek, index) {
     this.termek = termek;
     this.#index = index;
+    this.pElem = pElem;
 
     this.view();
     this.termElem = document.querySelector(".term:last-child");
-    this.kosElem = this.termElem.querySelector(".kosarg: last-child");
+    this.kosElem = this.termElem.querySelector(".kosarg:last-child");
     this.kosar();
   }
 
   view() {
-    let html = `<div class="term" style="width: 18rem;">
+    let html = `<div class="term col-md-6" style="width: 18rem;">
                 <img src=${this.termek.kep} class="card-img-top" alt="...">
                 <div class="card-body">
                 <h5 class="card-title">${this.termek.nev}</h5>
