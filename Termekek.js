@@ -35,6 +35,7 @@ export default class Termekek {
     window.addEventListener("kosar", (event) => {
       console.log(event.detail);
       this.ipElem.innerHTML = "";
+      
       this.#listk.push(this.#listt[event.detail]);
       this.viewKosar();
     });
