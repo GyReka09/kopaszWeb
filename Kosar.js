@@ -1,9 +1,9 @@
 export default class Kosar {
   #index;
-  constructor(ipElem, kosar, index) {
+  constructor(ipElem, kosar, index, db) {
     this.kosar = kosar;
     this.#index = index;
-
+    this.db = 1;
     this.view();
     this.kosrElem = document.querySelector(".kosar:last-child");
     this.torElem = this.kosrElem.querySelector(".torol: last-child");

@@ -27,14 +27,16 @@ export default class Termekek {
     this.ipElem.innerHTML = "";
     for (let index = 0; index < this.#listk.length; index++) {
       const kelement = this.#listk[index];
-      const Kosarak = new Kosar(this.ipElem, kelement, index);
+      const Kosarak = new Kosar(this.ipElem, kelement, index, db);
     }
   }
   kosarbaEvent() {
     window.addEventListener("kosar", (event) => {
       console.log(event.detail);
       this.ipElem.innerHTML = "";
+
       this.#listk.push(this.#listt[event.detail]);
+
       this.viewKosar();
     });
   }

@@ -1,5 +1,5 @@
 import Termekek from "./Termekek.js";
-import { termekLista } from "./termekLista.js";
+import { termekLista } from "./TermekLista.js";
 import { kosarLista } from "./kosarLista.js";
 
 const pElem = document.querySelector("article");
