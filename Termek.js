@@ -11,10 +11,19 @@ export default class Termek {
   }
 
   view() {
-    let html = `<p class="text">${this.kep}
-                  <button class="ready">Ok</button>
-                  <button class="delete">Del</button>
-              </p>`;
+    let html = `<div class="term" style="width: 18rem;">
+                <img src=${this.termek.kep} class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">${this.termek.nev}</h5>
+                <p class="card-text">${this.termek.text}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item">${this.termek.ar}</li>
+                </ul>
+                <div class="card-body">
+                <button class="kosarg">Kosarba</button>
+                </div>
+                </div>`;
     this.pElem.insertAdjacentHTML("beforeend", html);
   }
 

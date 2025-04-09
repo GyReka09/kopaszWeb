@@ -1,17 +1,18 @@
 import Termek from "./Termek.js";
-import TodoInput from "./TodoInput.js";
+import Kosar from "./Kosar.js";
 
 export default class Termekek {
-  #list;
-  constructor(pElem, ipElem, list) {
-    this.#list = list;
+  #listt;
+  #listk;
+  constructor(pElem, ipElem, listt, listk) {
+    this.#listt = listt;
+    this.#listk = listk;
     this.pElem = pElem;
     this.ipElem = ipElem;
-    this.viewInput();
-    this.viewTodos();
-    this.addEvent();
-    this.removeEvent();
-    this.readyEvent();
+    this.viewKosar();
+    this.viewTermek();
+    this.kosarbaEvent();
+    this.torolEvent();
   }
 
   viewTodos() {
