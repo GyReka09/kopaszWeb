@@ -1,4 +1,4 @@
-export default class Termek {
+export default class Kosar {
     #index;
     constructor(ipElem, kosar, index) {
       this.kosar = kosar;
