@@ -1,1 +1,1 @@
-const kosar = [];
+export const kosar = [];
