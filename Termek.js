@@ -24,6 +24,7 @@ export default class Termek {
                 <button class="kosarg">Kosarba</button>
                 </div>
                 </div>`;
+
     this.pElem.insertAdjacentHTML("beforeend", html);
   }
 

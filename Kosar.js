@@ -1,4 +1,5 @@
 export default class Kosar {
+
     #index;
     constructor(ipElem, kosar, index) {
       this.kosar = kosar;
@@ -12,6 +13,7 @@ export default class Kosar {
   
     view() {
       let html = `<div class="card mb-3" style="max-width: 540px;">
+
                     <div class="row g-0">
                     <div class="col-md-4">
                     <img src=${this.kosar.kep} class="img-fluid rounded-start" alt="...">
@@ -26,16 +28,15 @@ export default class Kosar {
                     </div>
                     </div>
                     </div>`;
-      this.pElem.insertAdjacentHTML("beforeend", html);
-    }
-  
-    kosar() {
-      this.torElem.addEventListener("click", (event) => {
-        console.log(this.#index);
-  
-        const e = new CustomEvent("torol", { detail: this.#index });
-        window.dispatchEvent(e);
-      });
-    }
+    this.pElem.insertAdjacentHTML("beforeend", html);
   }
-  
+
+  kosar() {
+    this.torElem.addEventListener("click", (event) => {
+      console.log(this.#index);
+
+      const e = new CustomEvent("torol", { detail: this.#index });
+      window.dispatchEvent(e);
+    });
+  }
+}

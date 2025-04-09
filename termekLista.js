@@ -1,4 +1,4 @@
-const termekLista = [
+export const termekLista = [
   {
     kep: "kepek/malac.jpg",
     nev: "Ten Geri",
