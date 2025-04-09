@@ -19,7 +19,7 @@ export default class Termek {
                     <div class="col-md-8">
                     <div class="card-body">
                     <h5 class="card-title">${this.kosar.nev}</h5>
-                    <p class="card-text">${this.kosar.text}</p>
+                    <p class="card-text">${this.kosar.leiras}</p>
                     <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                     <button class="torol">Torol</button>
                     </div>

@@ -15,7 +15,7 @@ export default class Termek {
                 <img src=${this.termek.kep} class="card-img-top" alt="...">
                 <div class="card-body">
                 <h5 class="card-title">${this.termek.nev}</h5>
-                <p class="card-text">${this.termek.text}</p>
+                <p class="card-text">${this.termek.leiras}</p>
                 </div>
                 <ul class="list-group list-group-flush">
                 <li class="list-group-item">${this.termek.ar}</li>
